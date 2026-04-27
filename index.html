@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nikhil Weds Asha | A Convention Hall Celebration</title>
+<meta property="og:title" content="Nikhil Weds Asha | A Convention Hall Celebration"/>
+<meta property="og:description" content="An elegant convention hall wedding invitation with events, map, RSVP, and photo stories."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+<style>
+/* ── RESET ── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+
+/* ── TOKENS ── */
+:root {
+  --sand:   #f4e7d6;
+  --sand2:  #ead9c2;
+  --clay:   #bf7c63;
+  --terr:   #8d4f38;
+  --gold:   #c9aa61;
+  --gold2:  #e6cf93;
+  --cream:  #fcf8f2;
+  --ink:    #2a1c16;
+  --ink2:   #5e483b;
+  --green:  #3f6c5b;
+  --rose:   #c7787f;
+  --muted:  #8c7362;
+}
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ── HERO: SCROLLING PHOTO BG ── */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(247, 208, 116, 0.28), transparent 18%),
+    radial-gradient(circle at 20% 24%, rgba(255, 180, 91, 0.18), transparent 16%),
+    radial-gradient(circle at 80% 24%, rgba(255, 180, 91, 0.18), transparent 16%),
+    linear-gradient(180deg, #2b1d1a 0%, #42271e 34%, #2a1714 100%);
+}
+
+.photo-ticker {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(90px, 1fr));
+  width: 100%;
+}
+
+.ticker-photo {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  flex-shrink: 0;
+  opacity: 0.55;
+  filter: saturate(0.7) brightness(0.6);
+}
+
+/* gradient overlay over photos */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(26, 16, 12, 0.56) 0%, rgba(26, 16, 12, 0.18) 40%, rgba(18, 10, 8, 0.72) 100%),
+    radial-gradient(ellipse at 50% 36%, rgba(255, 209, 128, 0.16) 0%, transparent 55%);
+  z-index: 1;
+}
+
+.lantern-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.lantern {
+  position: absolute;
+  bottom: -18vh;
+  width: clamp(36px, 5vw, 58px);
+  height: clamp(50px, 7vw, 82px);
+  border-radius: 20px 20px 14px 14px;
+  background:
+    radial-gradient(circle at 50% 28%, rgba(255, 248, 214, 0.92) 0 14%, rgba(255, 223, 125, 0.88) 15% 40%, rgba(255, 152, 56, 0.95) 41% 100%);
+  box-shadow:
+    0 0 30px rgba(255, 195, 94, 0.6),
+    0 0 70px rgba(255, 170, 60, 0.3);
+  opacity: 0;
+  animation: lanternRise var(--duration, 11s) ease-in infinite;
+  animation-delay: var(--delay, 0s);
+  left: var(--x, 50%);
+}
+
+.lantern::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -14px;
+  width: 14px;
+  height: 14px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(255, 219, 143, 0.9);
+  box-shadow: 0 0 14px rgba(255, 219, 143, 0.5);
+}
+
+.lantern::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -22px;
+  width: 1px;
+  height: 12px;
+  transform: translateX(-50%);
+  background: rgba(255, 235, 184, 0.65);
+}
+
+@keyframes lanternRise {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.78);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  35% {
+    transform: translate3d(calc(var(--drift, 18px) * 0.45), -30vh, 0) scale(0.94);
+  }
+  65% {
+    transform: translate3d(calc(var(--drift, 18px) * -0.2), -60vh, 0) scale(1.02);
+  }
+  100% {
+    transform: translate3d(calc(var(--drift, 18px) * 0.15), -108vh, 0) scale(1.06);
+    opacity: 0;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 920px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(230,207,147,0.28);
+  border-radius: 999px;
+  color: rgba(255,255,255,0.78);
+  letter-spacing: 4px;
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.05);
+}
+
+.om-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(15px, 3vw, 20px);
+  color: var(--gold2);
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.hero-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.hero-name {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(44px, 11vw, 96px);
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: 6px;
+  line-height: 1;
+  text-shadow: 0 2px 40px rgba(201,168,76,0.4);
+}
+
+.hero-weds {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(18px, 4vw, 30px);
+  color: var(--gold2);
+  letter-spacing: 8px;
+  margin: 8px 0;
+}
+
+.hero-date {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(11px, 2vw, 14px);
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 5px;
+  margin-top: 20px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.hero-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(230,207,147,0.38);
+  color: white;
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  background: rgba(255,255,255,0.04);
+}
+
+.hero-action:hover {
+  transform: translateY(-2px);
+  background: rgba(230,207,147,0.12);
+  border-color: rgba(230,207,147,0.65);
+}
+
+.hero-action.primary {
+  background: rgba(230,207,147,0.18);
+  color: var(--gold2);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: none;
+}
+.scroll-line { width:1px; height:40px; background:linear-gradient(180deg,transparent,rgba(255,255,255,0.5)); }
+.scroll-dot  { width:5px; height:5px; border-radius:50%; background:var(--gold2); opacity:0.8; }
+
+/* ── SECTION BASE ── */
+section { position: relative; }
+
+.sec-pad { padding: clamp(60px,8vw,100px) clamp(20px,5vw,60px); }
+.sec-pad-sm { padding: clamp(40px,6vw,70px) clamp(20px,5vw,60px); }
+
+.inner { max-width: 780px; margin: 0 auto; }
+
+/* ── DIVIDERS ── */
+.gold-rule {
+  display: flex; align-items: center; gap: 16px; justify-content: center;
+  margin: 20px auto;
+  max-width: 400px;
+}
+.gold-rule::before, .gold-rule::after {
+  content:''; flex:1; height:1px;
+  background: linear-gradient(90deg,transparent,var(--gold));
+}
+.gold-rule::after { background:linear-gradient(90deg,var(--gold),transparent); }
+.rule-icon { color:var(--gold); font-size:16px; }
+
+/* ── INVITE COPY SECTION ── */
+#invite-copy {
+  background: var(--cream);
+  text-align: center;
+}
+
+.ganesha-wrap {
+  width: clamp(100px,20vw,160px);
+  margin: 0 auto 28px;
+  opacity: 0.7;
+}
+
+.blessing-line {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(13px,2.5vw,17px);
+  color: var(--muted);
+  letter-spacing: 2px;
+  line-height: 1.8;
+  margin-bottom: 6px;
+}
+
+.invite-headline {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(11px,2vw,13px);
+  letter-spacing: 5px;
+  color: var(--clay);
+  text-transform: uppercase;
+  margin: 20px 0 10px;
+}
+
+.couple-names-copy {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(26px,6vw,46px);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.couple-names-copy .amp {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--clay);
+  font-size: 0.7em;
+}
+
+.daughter-line {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(14px,2.5vw,18px);
+  color: var(--muted);
+  margin: 16px 0 0;
+  line-height: 1.7;
+}
+
+/* ── EVENTS SECTION ── */
+#events {
+  background: var(--sand);
+}
+
+.events-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(11px,2vw,13px);
+  letter-spacing: 6px;
+  color: var(--clay);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.event-cards { display: flex; flex-direction: column; gap: 0; }
+
+.event-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.event-card:nth-child(even) { direction: rtl; }
+.event-card:nth-child(even) > * { direction: ltr; }
+
+.event-photo {
+  position: relative;
+  overflow: hidden;
+}
+
+.event-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+}
+.event-card:hover .event-photo img { transform: scale(1.04); }
+
+/* floral overlay corner */
+.floral-corner {
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 120px; height: 120px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+.event-card:nth-child(even) .floral-corner { left:0; right:auto; transform:scaleX(-1); }
+
+.event-info {
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(24px,4vw,48px) clamp(20px,4vw,44px);
+  position: relative;
+}
+
+.event-num {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.event-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px,5vw,48px);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.event-meta {
+  font-family: 'Jost', sans-serif;
+  font-size: clamp(13px,2vw,15px);
+  color: var(--ink2);
+  line-height: 2;
+  font-weight: 300;
+}
+
+.event-meta strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.route-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 10px 22px;
+  border: 1px solid var(--clay);
+  border-radius: 50px;
+  color: var(--clay);
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  transition: all 0.3s;
+  align-self: flex-start;
+}
+.route-btn:hover { background:var(--clay); color:white; }
+
+@media (max-width:600px) {
+  .event-card { grid-template-columns: 1fr; min-height:auto; }
+  .event-card:nth-child(even) { direction:ltr; }
+  .event-photo { height: 220px; }
+}
+
+/* ── MAP SECTION ── */
+#map-section {
+  background: var(--ink);
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.map-card {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 20px;
+  padding: 40px 60px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.map-card:hover { background:rgba(255,255,255,0.09); }
+
+.map-icon {
+  width: 64px; height: 64px;
+  background: var(--clay);
+  border-radius: 50%;
+  display: flex; align-items:center; justify-content:center;
+}
+
+.map-label {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: white;
+}
+
+.map-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--gold2);
+  opacity: 0.8;
+}
+
+/* ── COUPLE SECTION ── */
+#couple-section {
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255,255,255,0.16), transparent 30%),
+    linear-gradient(180deg, #0ea7b2 0%, #22bfc8 36%, #c9eff0 36%, #84dde6 62%, #5ad3df 100%);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.couple-label {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(10px,1.8vw,12px);
+  letter-spacing: 6px;
+  color: var(--clay);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.couple-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px,7vw,64px);
+  text-align: center;
+  color: #ff4ca0;
+  margin-bottom: 26px;
+  font-style: italic;
+}
+
+.couple-stage {
+  padding: clamp(56px,8vw,90px) clamp(18px,4vw,40px) clamp(40px,6vw,70px);
+}
+
+.couple-stage-shell {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.26), rgba(255,255,255,0.06)),
+    linear-gradient(180deg, #d0f7fb 0%, #b1eef2 100%);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 2px;
+  box-shadow: 0 30px 80px rgba(4, 81, 90, 0.18);
+  overflow: hidden;
+}
+
+.couple-stage-shell::before,
+.couple-stage-shell::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.couple-stage-shell::before {
+  background:
+    linear-gradient(135deg, transparent 0 20%, rgba(0, 83, 96, 0.18) 20% 23%, transparent 23% 100%),
+    linear-gradient(225deg, transparent 0 20%, rgba(0, 83, 96, 0.18) 20% 23%, transparent 23% 100%);
+  mix-blend-mode: multiply;
+}
+
+.couple-stage-shell::after {
+  background:
+    linear-gradient(180deg, transparent 0 62%, rgba(0, 99, 111, 0.9) 62% 64%, transparent 64% 100%),
+    linear-gradient(180deg, transparent 0 35%, rgba(255,255,255,0.08) 35% 100%),
+    radial-gradient(circle at 50% 55%, rgba(255,255,255,0.18), transparent 42%);
+  opacity: 0.9;
+}
+
+.couple-stage-copy {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 34px 18px 18px;
+  background: linear-gradient(180deg, rgba(10,102,114,0.75), rgba(10,102,114,0.08));
+}
+
+.couple-stage-kicker {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: rgba(255, 248, 194, 0.92);
+}
+
+.couple-stage-art {
+  position: relative;
+  z-index: 1;
+  min-height: 360px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 24px 18px 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0) 0 34%, rgba(5,124,138,0.72) 34% 100%),
+    url('assets/bg/hero-2.jpg') center/cover no-repeat;
+}
+
+.couple-stage-platform {
+  position: relative;
+  width: min(360px, 80vw);
+  height: 210px;
+  margin-bottom: -34px;
+}
+
+.couple-stage-base {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 250px;
+  height: 96px;
+  transform: translateX(-50%);
+  border-radius: 50% 50% 28px 28px;
+  background: linear-gradient(180deg, #ff8e32, #f3562e 68%, #db3d28);
+  box-shadow: 0 24px 40px rgba(232, 91, 41, 0.22);
+}
+
+.couple-stage-platform::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  width: 210px;
+  height: 112px;
+  transform: translateX(-50%);
+  border-radius: 52% 52% 30px 30px;
+  background: linear-gradient(180deg, #ffb15a, #ff6f37 70%, #f2473a);
+}
+
+.couple-stage-figure,
+.couple-stage-figure::before,
+.couple-stage-figure::after {
+  position: absolute;
+  content: '';
+  display: block;
+}
+
+.couple-stage-figure.man {
+  left: 34%;
+  bottom: 90px;
+  width: 60px;
+  height: 120px;
+  background: linear-gradient(180deg, #f5a11b, #db7c11);
+  border-radius: 24px 24px 12px 12px;
+  transform: rotate(-1deg);
+}
+
+.couple-stage-figure.man::before {
+  left: 7px;
+  top: -36px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #f59f1c, #ea7f0d);
+}
+
+.couple-stage-figure.man::after {
+  left: 50px;
+  top: 34px;
+  width: 44px;
+  height: 14px;
+  border-radius: 999px;
+  background: #f5a11b;
+  transform: rotate(20deg);
+  transform-origin: left center;
+}
+
+.couple-stage-figure.woman {
+  right: 31%;
+  bottom: 82px;
+  width: 70px;
+  height: 132px;
+  background: linear-gradient(180deg, #ff6c75, #de315d 62%, #c71d49);
+  border-radius: 26px 26px 22px 22px;
+  transform: rotate(1deg);
+}
+
+.couple-stage-figure.woman::before {
+  left: 10px;
+  top: -34px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ff9d86, #ef6b7a);
+}
+
+.couple-stage-figure.woman::after {
+  left: 10px;
+  top: 34px;
+  width: 66px;
+  height: 90px;
+  border-radius: 32px 32px 20px 20px;
+  background: linear-gradient(180deg, #ff4b65, #d9144a);
+  clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+}
+
+.couple-stage-lotus {
+  position: absolute;
+  right: 18px;
+  bottom: 22px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, #ffca4a 0 28%, #ff9c2f 29% 52%, #d86e0e 53% 100%);
+  box-shadow: -92px 8px 0 0 rgba(255, 183, 70, 0.85);
+}
+
+.couple-stage-pedestal {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 240px;
+  height: 40px;
+  transform: translateX(-50%);
+  border-radius: 999px 999px 28px 28px;
+  background: linear-gradient(180deg, #ff3d49, #df1b44);
+  box-shadow: 0 14px 30px rgba(221, 27, 68, 0.28);
+}
+
+.couple-message-wrap {
+  background: rgba(255,255,255,0.08);
+  padding: clamp(28px, 5vw, 56px) 18px clamp(46px, 7vw, 80px);
+}
+
+.couple-message {
+  background: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.95);
+  border-left-color: rgba(255,255,255,0.6);
+  backdrop-filter: blur(6px);
+}
+
+@media (max-width:600px) {
+  .couple-stage-art {
+    min-height: 320px;
+  }
+
+  .couple-stage-figure.man {
+    left: 22%;
+  }
+
+  .couple-stage-figure.woman {
+    right: 16%;
+  }
+
+  .couple-stage-lotus {
+    right: 6px;
+  }
+}
+
+/* ── PHOTO CAROUSEL ── */
+#carousel-section {
+  background: var(--sand2);
+  overflow: hidden;
+  padding: 50px 0;
+}
+
+.carousel-label {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: var(--clay);
+  text-align:center;
+  margin-bottom: 30px;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 16px;
+  animation: carouselScroll 30s linear infinite;
+  width: max-content;
+  margin: 0 auto;
+}
+
+@keyframes carouselScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.carousel-photo {
+  width: clamp(180px, 28vw, 260px);
+  aspect-ratio: 3/4;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--sand);
+}
+
+.carousel-photo img { width:100%; height:100%; object-fit:cover; }
+
+.carousel-placeholder {
+  width:100%; height:100%;
+  display:flex; align-items:center; justify-content:center;
+  flex-direction:column; gap:8px;
+  color: var(--muted);
+  font-family:'Cinzel',serif; font-size:10px; letter-spacing:2px;
+}
+
+/* ── RSVP SECTION ── */
+#rsvp-section {
+  background: var(--ink);
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.rsvp-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px,4vw,28px);
+  color: rgba(255,255,255,0.8);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.rsvp-sub {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--gold2);
+  margin-bottom: 30px;
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 36px;
+  background: #25d366;
+  border-radius: 50px;
+  color: white;
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 30px rgba(37,211,102,0.3);
+}
+.whatsapp-btn:hover { transform:translateY(-2px); box-shadow:0 8px 40px rgba(37,211,102,0.4); }
+
+/* ── THINGS TO KNOW ── */
+#info-section {
+  background: var(--cream);
+}
+
+.info-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px,5vw,40px);
+  text-align: center;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.info-sub {
+  font-family: 'Jost', sans-serif;
+  font-size: clamp(13px,2vw,16px);
+  color: var(--muted);
+  text-align: center;
+  max-width: 540px;
+  margin: 0 auto 44px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.info-card {
+  background: var(--sand);
+  border-radius: 16px;
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid rgba(196,136,106,0.15);
+  transition: box-shadow 0.3s;
+}
+.info-card:hover { box-shadow: 0 8px 30px rgba(196,136,106,0.15); }
+
+.info-icon {
+  width: 48px; height: 48px;
+  background: var(--clay);
+  border-radius: 12px;
+  display: flex; align-items:center; justify-content:center;
+  font-size: 22px;
+}
+
+.info-card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--ink);
+}
+
+.info-card-body {
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  color: var(--ink2);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* ── INSTAGRAM ── */
+#insta-section {
+  background: var(--sand2);
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.insta-big {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px,6vw,52px);
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.insta-big em { font-style:italic; color:var(--clay); }
+
+.insta-sub {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.insta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border: 1.5px solid var(--clay);
+  border-radius: 50px;
+  color: var(--clay);
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.insta-btn:hover { background:var(--clay); color:white; }
+
+/* ── FOOTER COUNTDOWN ── */
+#footer-section {
+  background: var(--ink);
+  text-align: center;
+  padding: 80px 20px 60px;
+}
+
+.footer-names {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(26px,5vw,44px);
+  color: white;
+  letter-spacing: 4px;
+}
+.footer-amp {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold2);
+  font-size: clamp(20px,4vw,34px);
+}
+
+.countdown-label {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: var(--gold2);
+  opacity: 0.7;
+  margin: 24px 0 16px;
+}
+
+.countdown-row {
+  display: flex;
+  justify-content: center;
+  gap: clamp(12px,4vw,40px);
+  margin-bottom: 30px;
+}
+
+.cd-item { display:flex; flex-direction:column; align-items:center; gap:6px; }
+
+.cd-num {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(28px,7vw,56px);
+  color: white;
+  line-height: 1;
+  min-width: clamp(50px,10vw,80px);
+  text-align: center;
+}
+
+.cd-sep {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(24px,5vw,44px);
+  color: var(--gold2);
+  opacity: 0.5;
+  line-height: 1;
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.cd-lbl {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+}
+
+.footer-message {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(14px,2.5vw,18px);
+  color: rgba(255,255,255,0.45);
+  max-width: 500px;
+  margin: 0 auto 30px;
+  line-height: 1.7;
+}
+
+.footer-credit {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .photo-ticker,
+  .carousel-track,
+  .scroll-hint,
+  .reveal {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+.reveal.in { opacity:1; transform:none; }
+.reveal-d1,
+.reveal-d2,
+.reveal-d3 { transition-delay: 0s; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+  HERO — scrolling photo background
+══════════════════════════════════════════ -->
+<section id="hero">
+
+  <div class="photo-ticker" id="photoTicker">
+    <!-- Duplicated for seamless loop — JS will handle -->
+  </div>
+
+  <div class="lantern-layer" id="lanternLayer"></div>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">STEEL PLANT WEDDING INVITATION</div>
+    <p class="om-text">ॐ श्री गणेशाय नम</p>
+    <div class="hero-names">
+      <div class="hero-name">Nikhil</div>
+      <div class="hero-weds">weds</div>
+      <div class="hero-name">Asha</div>
+    </div>
+    <p class="hero-date">MARCH 2026 · STEEL PLANT, VISAKHAPATNAM</p>
+    <div class="hero-actions">
+      <a class="hero-action primary" href="#events">View Celebrations</a>
+      <a class="hero-action" href="#rsvp-section">RSVP Now</a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  INVITE COPY
+══════════════════════════════════════════ -->
+<section id="invite-copy" class="sec-pad">
+  <div class="inner" style="text-align:center">
+
+    <!-- Ganesha SVG -->
+    <div class="ganesha-wrap reveal">
+      <svg viewBox="0 0 160 180" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Crown -->
+        <path d="M58,28 Q60,12 80,8 Q100,12 102,28"/>
+        <path d="M66,24 L64,10 L70,22"/>
+        <path d="M80,22 L80,6 L80,22"/>
+        <path d="M94,24 L96,10 L90,22"/>
+        <!-- Head -->
+        <ellipse cx="80" cy="62" rx="36" ry="38"/>
+        <!-- Eyes -->
+        <circle cx="68" cy="56" r="5"/><circle cx="68" cy="56" r="2" fill="#c9a84c"/>
+        <circle cx="92" cy="56" r="5"/><circle cx="92" cy="56" r="2" fill="#c9a84c"/>
+        <!-- Third eye -->
+        <ellipse cx="80" cy="46" rx="4" ry="3"/>
+        <!-- Ears -->
+        <path d="M44,58 Q22,46 28,82 Q32,100 46,96"/>
+        <path d="M116,58 Q138,46 132,82 Q128,100 114,96"/>
+        <!-- Trunk curling -->
+        <path d="M78,88 Q64,106 72,126 Q80,142 96,138"/>
+        <!-- Tusk -->
+        <path d="M92,78 Q108,84 112,96 L106,100"/>
+        <!-- Body -->
+        <path d="M48,100 Q40,140 44,168 Q60,178 80,178 Q100,178 116,168 Q120,140 112,100"/>
+        <!-- Belly -->
+        <ellipse cx="80" cy="148" rx="22" ry="18"/>
+        <!-- Arms -->
+        <path d="M54,112 Q36,118 32,136 Q30,148 40,152"/>
+        <path d="M106,112 Q124,118 128,136 Q130,148 120,152"/>
+        <!-- Modak in right hand -->
+        <circle cx="126" cy="154" r="9"/>
+        <!-- Blessing left hand up -->
+        <path d="M38,152 Q28,144 30,134"/>
+        <!-- Legs crossed -->
+        <path d="M58,170 Q52,180 64,182"/>
+        <path d="M102,170 Q108,180 96,182"/>
+        <!-- Lotus base -->
+        <ellipse cx="80" cy="182" rx="34" ry="6"/>
+        <path d="M52,180 Q60,170 80,175 Q100,170 108,180"/>
+      </svg>
+    </div>
+
+    <div class="gold-rule reveal reveal-d1"><span class="rule-icon">✦</span></div>
+
+    <p class="blessing-line reveal reveal-d1">With the love and blessings of</p>
+    <p class="blessing-line reveal reveal-d1"><strong>Smt. Lata Devi & Shri Kamal Kapoor</strong></p>
+    <p class="blessing-line reveal reveal-d1" style="margin-top:8px">——</p>
+    <p class="blessing-line reveal reveal-d2"><strong>Mrs. Reena & Mr. Rajiv Kapoor</strong></p>
+
+    <p class="invite-headline reveal reveal-d2">We warmly invite you to celebrate the wedding of</p>
+
+    <div class="couple-names-copy reveal reveal-d3">
+      Nikhil <span class="amp">&</span> Asha
+    </div>
+
+    <p class="daughter-line reveal">
+      Daughter of<br/>
+      <strong>Mrs. Shalini & Mr. Aakash Mittal</strong>
+    </p>
+
+    <div class="gold-rule reveal" style="margin-top:28px"><span class="rule-icon">✦</span></div>
+    <p class="blessing-line reveal" style="margin-top:4px">Join us for the celebrations below</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  EVENTS
+══════════════════════════════════════════ -->
+<section id="events">
+  <div class="sec-pad-sm" style="background:var(--sand)">
+    <p class="events-title">EVENTS &amp; CELEBRATIONS</p>
+  </div>
+
+  <div class="event-cards">
+
+    <!-- 1. MEHENDI -->
+    <div class="event-card reveal">
+      <div class="event-photo">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#e8c97e22,#c4886a33);display:flex;align-items:center;justify-content:center;min-height:280px">
+          <span style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:var(--muted)">YOUR PHOTO</span>
+        </div>
+        <!-- Floral corner SVG -->
+        <svg class="floral-corner" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#c9a84c" stroke-width="1.2">
+          <circle cx="10" cy="110" r="8" fill="#c4886a" opacity="0.4"/>
+          <path d="M10,110 Q30,80 50,60"/>
+          <circle cx="35" cy="78" r="5" fill="#c9a84c" opacity="0.5"/>
+          <path d="M10,110 Q50,90 80,60"/>
+          <circle cx="60" cy="68" r="6" fill="#c4886a" opacity="0.4"/>
+          <path d="M10,110 Q20,70 40,40"/>
+          <circle cx="28" cy="62" r="4" fill="#c9a84c" opacity="0.4"/>
+          <path d="M10,110 Q60,100 100,70"/>
+          <circle cx="80" cy="78" r="4" fill="#c4886a" opacity="0.3"/>
+          <path d="M50,60 Q55,50 60,55 Q55,65 50,60"/>
+          <path d="M80,60 Q85,50 90,55 Q85,65 80,60"/>
+          <path d="M30,80 Q35,70 40,75 Q35,85 30,80"/>
+        </svg>
+      </div>
+      <div class="event-info">
+        <p class="event-num">01 · CEREMONY</p>
+        <h2 class="event-name">Mehendi</h2>
+        <div class="event-meta">
+          <strong>Friday, March 9th 2026</strong><br/>
+          Steel Plant, Visakhapatnam<br/>
+          6 PM Onwards
+        </div>
+        <a class="route-btn" href="https://maps.google.com" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+          See the Route
+        </a>
+      </div>
+    </div>
+
+    <!-- 2. HALDI -->
+    <div class="event-card reveal">
+      <div class="event-photo">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#f5e6aa22,#e8b43333);display:flex;align-items:center;justify-content:center;min-height:280px">
+          <span style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:var(--muted)">YOUR PHOTO</span>
+        </div>
+        <svg class="floral-corner" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#c9a84c" stroke-width="1.2">
+          <circle cx="10" cy="110" r="8" fill="#c4886a" opacity="0.4"/>
+          <path d="M10,110 Q30,80 50,60"/><circle cx="35" cy="78" r="5" fill="#c9a84c" opacity="0.5"/>
+          <path d="M10,110 Q50,90 80,60"/><circle cx="60" cy="68" r="6" fill="#c4886a" opacity="0.4"/>
+          <path d="M10,110 Q20,70 40,40"/>
+          <path d="M10,110 Q60,100 100,70"/>
+        </svg>
+      </div>
+      <div class="event-info">
+        <p class="event-num">02 · CEREMONY</p>
+        <h2 class="event-name">Haldi</h2>
+        <div class="event-meta">
+          <strong>Friday, March 9th 2026</strong><br/>
+          Steel Plant, Visakhapatnam<br/>
+          6 PM Onwards
+        </div>
+        <a class="route-btn" href="https://maps.google.com" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+          See the Route
+        </a>
+      </div>
+    </div>
+
+    <!-- 3. COCKTAIL -->
+    <div class="event-card reveal">
+      <div class="event-photo">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#b5d8f022,#6a9fbf33);display:flex;align-items:center;justify-content:center;min-height:280px">
+          <span style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:var(--muted)">YOUR PHOTO</span>
+        </div>
+        <svg class="floral-corner" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#c9a84c" stroke-width="1.2">
+          <circle cx="10" cy="110" r="8" fill="#c4886a" opacity="0.4"/>
+          <path d="M10,110 Q30,80 50,60"/><circle cx="35" cy="78" r="5" fill="#c9a84c" opacity="0.5"/>
+          <path d="M10,110 Q50,90 80,60"/>
+          <path d="M10,110 Q60,100 100,70"/>
+        </svg>
+      </div>
+      <div class="event-info">
+        <p class="event-num">03 · CELEBRATION</p>
+        <h2 class="event-name">Cocktail</h2>
+        <div class="event-meta">
+          <strong>Friday, March 9th 2026</strong><br/>
+          Steel Plant, Visakhapatnam<br/>
+          6 PM Onwards
+        </div>
+        <a class="route-btn" href="https://maps.google.com" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+          See the Route
+        </a>
+      </div>
+    </div>
+
+    <!-- 4. SHAADI -->
+    <div class="event-card reveal">
+      <div class="event-photo">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#f5d0d022,#c2707033);display:flex;align-items:center;justify-content:center;min-height:280px">
+          <span style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:var(--muted)">YOUR PHOTO</span>
+        </div>
+        <svg class="floral-corner" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#c9a84c" stroke-width="1.2">
+          <circle cx="10" cy="110" r="8" fill="#c4886a" opacity="0.4"/>
+          <path d="M10,110 Q30,80 50,60"/><circle cx="35" cy="78" r="5" fill="#c9a84c" opacity="0.5"/>
+          <path d="M10,110 Q50,90 80,60"/>
+          <path d="M10,110 Q60,100 100,70"/>
+        </svg>
+      </div>
+      <div class="event-info">
+        <p class="event-num">04 · THE MAIN EVENT</p>
+        <h2 class="event-name">Shaadi</h2>
+        <div class="event-meta">
+          <strong>Saturday, March 10th 2026</strong><br/>
+          Steel Plant, Visakhapatnam<br/>
+          9 AM · Auspicious Muhurtham
+        </div>
+        <a class="route-btn" href="https://maps.google.com" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+          See the Route
+        </a>
+      </div>
+    </div>
+
+    <!-- 5. RECEPTION -->
+    <div class="event-card reveal">
+      <div class="event-photo">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#d4c9f022,#8a70c433);display:flex;align-items:center;justify-content:center;min-height:280px">
+          <span style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;color:var(--muted)">YOUR PHOTO</span>
+        </div>
+        <svg class="floral-corner" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#c9a84c" stroke-width="1.2">
+          <circle cx="10" cy="110" r="8" fill="#c4886a" opacity="0.4"/>
+          <path d="M10,110 Q30,80 50,60"/><circle cx="35" cy="78" r="5" fill="#c9a84c" opacity="0.5"/>
+          <path d="M10,110 Q50,90 80,60"/>
+          <path d="M10,110 Q60,100 100,70"/>
+        </svg>
+      </div>
+      <div class="event-info">
+        <p class="event-num">05 · EVENING</p>
+        <h2 class="event-name">Reception</h2>
+        <div class="event-meta">
+          <strong>Saturday, March 10th 2026</strong><br/>
+          Steel Plant, Visakhapatnam<br/>
+          7 PM Onwards
+        </div>
+        <a class="route-btn" href="https://maps.google.com" target="_blank">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+          See the Route
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  MAP
+══════════════════════════════════════════ -->
+<section id="map-section">
+  <a class="map-card reveal" href="https://maps.google.com" target="_blank">
+    <div class="map-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+    </div>
+    <p class="map-label">See the Route</p>
+    <p class="map-sub">Click to open the map</p>
+  </a>
+</section>
+
+<!-- ══════════════════════════════════════════
+  COUPLE / MEET THE BRIDE & GROOM
+══════════════════════════════════════════ -->
+<section id="couple-section" class="sec-pad">
+  <div class="couple-stage">
+    <div class="couple-stage-shell">
+      <div class="couple-stage-copy reveal">
+        <p class="couple-stage-kicker">MEET THE</p>
+        <h2 class="couple-headline">Nikhil &amp; Asha</h2>
+      </div>
+
+      <div class="couple-stage-art reveal">
+        <div class="couple-stage-platform">
+          <div class="couple-stage-pedestal"></div>
+          <div class="couple-stage-base"></div>
+          <div class="couple-stage-figure man"></div>
+          <div class="couple-stage-figure woman"></div>
+          <div class="couple-stage-lotus"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="couple-message-wrap">
+      <blockquote class="couple-message reveal">
+        We are grateful for the love and support of our family and friends, and we cannot wait to celebrate this special chapter with the people who mean the most to us. Your presence will make the day even more memorable.
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  CAROUSEL
+══════════════════════════════════════════ -->
+<section id="carousel-section">
+  <p class="carousel-label">OUR STORY</p>
+  <div class="carousel-track" id="carouselTrack">
+    <!-- JS duplicates these for infinite scroll -->
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  RSVP
+══════════════════════════════════════════ -->
+<section id="rsvp-section">
+  <div class="reveal">
+    <p class="rsvp-text">Looking forward to seeing you</p>
+    <p class="rsvp-sub">CLICK THE LINK TO RSVP</p>
+    <a class="whatsapp-btn" href="https://wa.me/919999999999" target="_blank">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      RSVP via WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  THINGS TO KNOW
+══════════════════════════════════════════ -->
+<section id="info-section" class="sec-pad">
+  <div class="inner">
+    <h2 class="info-title reveal">Things to Know</h2>
+    <p class="info-sub reveal">To help you feel at ease and enjoy every moment of the celebrations, we've gathered a few thoughtful details.</p>
+
+    <div class="info-grid">
+      <div class="info-card reveal">
+        <div class="info-icon">🏷️</div>
+        <p class="info-card-title">Hashtag</p>
+        <p class="info-card-body">Please use the hashtag <strong>#NikhilWedsAsha</strong> while sharing your favorite moments online.</p>
+      </div>
+      <div class="info-card reveal reveal-d1">
+        <div class="info-icon">🌤️</div>
+        <p class="info-card-title">Weather</p>
+        <p class="info-card-body">Expect a comfortable indoor celebration with a climate-controlled hall and an easy evening for everyone.</p>
+      </div>
+      <div class="info-card reveal reveal-d2">
+        <div class="info-icon">🏨</div>
+        <p class="info-card-title">Accommodation</p>
+        <p class="info-card-body">We recommend staying at nearby hotels or the venue-adjacent guest accommodations for the most convenient experience.</p>
+      </div>
+      <div class="info-card reveal reveal-d3">
+        <div class="info-icon">🚗</div>
+        <p class="info-card-title">Parking</p>
+        <p class="info-card-body">Complimentary valet parking will be available at the venue entrance for all guests.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  INSTAGRAM
+══════════════════════════════════════════ -->
+<section id="insta-section">
+  <div class="reveal">
+    <p class="insta-big">Follow <em>the celebration</em></p>
+    <p class="insta-sub">CLICK TO OPEN INSTAGRAM</p>
+    <a class="insta-btn" href="https://instagram.com" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      @NikhilAsha2026
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  FOOTER COUNTDOWN
+══════════════════════════════════════════ -->
+<section id="footer-section">
+  <div class="reveal">
+    <p class="footer-names">Nikhil <span class="footer-amp">&</span> Asha</p>
+
+    <p class="countdown-label">THE COUNTDOWN BEGINS</p>
+
+    <div class="countdown-row">
+      <div class="cd-item">
+        <div class="cd-num" id="cd-d">000</div>
+        <div class="cd-lbl">Days</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-item">
+        <div class="cd-num" id="cd-h">00</div>
+        <div class="cd-lbl">Hours</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-item">
+        <div class="cd-num" id="cd-m">00</div>
+        <div class="cd-lbl">Mins</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-item">
+        <div class="cd-num" id="cd-s">00</div>
+        <div class="cd-lbl">Secs</div>
+      </div>
+    </div>
+
+    <p class="footer-message">Our families are excited that you are able to join us in celebrating what we hope will be one of the happiest days of our lives.</p>
+
+    <div style="margin-bottom:20px">
+      <p style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;color:rgba(255,255,255,0.2)">© 2026 · NIKHIL &amp; ASHA</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  JAVASCRIPT
+══════════════════════════════════════════ -->
+<script>
+const GALLERY_IMAGES = [
+  'linear-gradient(160deg, #5a2d6b 0%, #8d5a9e 46%, #d6b45d 100%)',
+  'linear-gradient(160deg, #7b4a2f 0%, #c78449 45%, #f3d37f 100%)',
+  'linear-gradient(160deg, #3f2b62 0%, #724998 46%, #d6a54e 100%)',
+  'linear-gradient(160deg, #412b1f 0%, #8d5d3a 48%, #e9c57a 100%)',
+];
+
+/* ── Hero photo ticker ── */
+(function() {
+  const ticker = document.getElementById('photoTicker');
+
+  function buildStrip() {
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < 8; i++) {
+      const div = document.createElement('div');
+      div.className = 'ticker-photo';
+      const image = GALLERY_IMAGES[i % GALLERY_IMAGES.length];
+      div.style.cssText = `background:${image};background-size:cover;background-position:center;`;
+      frag.appendChild(div);
+    }
+    return frag;
+  }
+
+  // Two copies for seamless loop
+  ticker.appendChild(buildStrip());
+})();
+
+/* ── Rising lanterns ── */
+(function() {
+  const layer = document.getElementById('lanternLayer');
+  const lanternCount = 12;
+
+  for (let i = 0; i < lanternCount; i++) {
+    const lantern = document.createElement('div');
+    lantern.className = 'lantern';
+    lantern.style.setProperty('--x', `${6 + i * 7}%`);
+    lantern.style.setProperty('--delay', `${i * 1.2}s`);
+    lantern.style.setProperty('--duration', `${7 + (i % 4)}s`);
+    lantern.style.setProperty('--drift', `${10 + (i % 5) * 6}px`);
+    lantern.style.transform = `translateX(${(i % 2 === 0 ? -1 : 1) * (i % 4)}px)`;
+    layer.appendChild(lantern);
+  }
+})();
+
+/* ── Event backgrounds ── */
+(function() {
+  const eventPanels = document.querySelectorAll('.event-photo > div');
+  eventPanels.forEach((panel, index) => {
+    const image = GALLERY_IMAGES[index % GALLERY_IMAGES.length];
+    panel.style.cssText = [
+      `width:100%`,
+      `height:100%`,
+      `min-height:280px`,
+      `background-image:linear-gradient(180deg, rgba(14, 10, 8, 0.18), rgba(14, 10, 8, 0.45)), url('${image}')`,
+      'background-size:cover',
+      'background-position:center',
+    ].join(';');
+    panel.innerHTML = '';
+  });
+})();
+
+/* ── Carousel ── */
+(function() {
+  const track = document.getElementById('carouselTrack');
+  const labels = ['Arrival','Ceremony','Family','Friends','Blessings','Celebration','Together','Forever'];
+
+  function buildPhotos() {
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < 8; i++) {
+      const div = document.createElement('div');
+      div.className = 'carousel-photo';
+      const image = GALLERY_IMAGES[i % GALLERY_IMAGES.length];
+      div.innerHTML = `<img src="${image}" alt="${labels[i]}"/>`;
+      frag.appendChild(div);
+    }
+    return frag;
+  }
+
+  track.appendChild(buildPhotos());
+  track.appendChild(buildPhotos());
+})();
+
+/* ── Countdown ── */
+(function() {
+  const target = new Date('2026-03-10T09:00:00+05:30').getTime();
+  const els = {
+    d: document.getElementById('cd-d'),
+    h: document.getElementById('cd-h'),
+    m: document.getElementById('cd-m'),
+    s: document.getElementById('cd-s'),
+  };
+  function pad(n, digits=2) { return String(n).padStart(digits,'0'); }
+  function tick() {
+    const diff = Math.max(0, target - Date.now());
+    els.d.textContent = pad(Math.floor(diff/86400000), 3);
+    els.h.textContent = pad(Math.floor((diff%86400000)/3600000));
+    els.m.textContent = pad(Math.floor((diff%3600000)/60000));
+    els.s.textContent = pad(Math.floor((diff%60000)/1000));
+  }
+  tick(); setInterval(tick,1000);
+})();
+
+</script>
+</body>
+</html>
