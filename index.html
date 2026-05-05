@@ -49,7 +49,7 @@ body {
 #hero{
   position:relative;min-height:100vh;
   display:grid;place-items:center;
-  overflow:hidden;isolation:isolate;
+  overflow:visible;isolation:isolate;
   font-family:'Cormorant Garamond',serif;
   color:var(--cream);
   background:var(--bgDark);
@@ -136,8 +136,9 @@ body {
 }
 /* BOTTOM LEFT — rotate 180° of the same image */
 .floral--bl{
-  bottom:-10px;left:-10px;
-  width:clamp(260px,40vw,520px);
+  bottom:calc(clamp(10px,2.2vh,26px) + env(safe-area-inset-bottom, 0px));
+  left:calc(clamp(10px,2.2vw,26px) + env(safe-area-inset-left, 0px));
+  width:clamp(210px,36vw,470px);
   transform-origin:center center;
   mix-blend-mode:lighten;
   filter:saturate(1.25) brightness(1.12);
@@ -415,6 +416,15 @@ body {
   .corner--tr{transform:scaleX(-1)!important;}
   .corner--bl{transform:scaleY(-1)!important;}
   .corner--br{transform:scale(-1,-1)!important;}
+}
+
+/* Small-screen tweak: ensure floral stays visible and not clipped */
+@media (max-width:480px){
+  .floral--bl{
+    width:clamp(150px,30vw,300px);
+    bottom:calc(18px + env(safe-area-inset-bottom, 0px));
+    left:calc(16px + env(safe-area-inset-left, 0px));
+  }
 }
 
 /* ── SECTION BASE ── */
@@ -1456,7 +1466,7 @@ section { position: relative; }
         <h2 class="event-name">Haldi</h2>
         <div class="event-meta">
           <strong>Wednesday, May 6th 2026</strong><br/>
-          Steel Plant, Visakhapatnam<br/>
+          Gajuwaka, Visakhapatnam<br/>
           9:30 AM
         </div>
         <a class="route-btn" href="https://maps.app.goo.gl/GQevMaKCtX2eqECZ9" target="_blank">
@@ -1487,8 +1497,8 @@ section { position: relative; }
         <h2 class="event-name">Mehendi</h2>
         <div class="event-meta">
           <strong>Wednesday, May 6th 2026</strong><br/>
-          Steel Plant, Visakhapatnam<br/>
-          2:30 AM
+          Gajuwaka, Visakhapatnam<br/>
+          2:30 PM
         </div>
         <a class="route-btn" href="https://maps.app.goo.gl/GQevMaKCtX2eqECZ9" target="_blank">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
@@ -1517,7 +1527,7 @@ section { position: relative; }
         <h2 class="event-name">Sangeet</h2>
         <div class="event-meta">
           <strong>Wednesday, May 6th 2026</strong><br/>
-          Steel Plant, Visakhapatnam<br/>
+          Gajuwaka, Visakhapatnam<br/>
           4:30 PM
         </div>
         <a class="route-btn" href="https://maps.app.goo.gl/GQevMaKCtX2eqECZ9" target="_blank">
@@ -1548,7 +1558,7 @@ section { position: relative; }
         <div class="event-meta">
           <strong>Friday, May 8th 2026</strong><br/>
           Steel Plant, Visakhapatnam<br/>
-          7 PM
+          7:00 PM
         </div>
         <a class="route-btn" href="https://maps.app.goo.gl/xQGXMf3QENFAHBqP6" target="_blank">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
@@ -1572,9 +1582,8 @@ section { position: relative; }
         <p class="event-num">05 · EVENING</p>
         <h2 class="event-name">Marriage</h2>
         <div class="event-meta">
-          <strong>Saturday, May 9th 2026</strong><br/>
-          Steel Plant, Visakhapatnam<br/>
-          2:16 AM
+          <strong>Friday Late night / Early hours of Saturday</strong><br/>
+          Steel Plant, Visakhapatnam
         </div>
         <a class="route-btn" href="https://maps.app.goo.gl/xQGXMf3QENFAHBqP6" target="_blank">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
