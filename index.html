@@ -1330,73 +1330,302 @@ section { position: relative; }
 </section>
 
 <!-- ══════════════════════════════════════════
-  INVITE COPY
-══════════════════════════════════════════ -->
-<section id="invite-copy" class="sec-pad">
-  <div class="inner" style="text-align:center">
+    INVITE COPY — Redesigned
+  ══════════════════════════════════════════ -->
+<section id="invite-copy">
+  <style>
+    #invite-copy {
+      position: relative;
+      width: 100%;
+      min-height: 900px;
+      background: #f5ead6;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+    }
 
-    <!-- Ganesha SVG -->
-    <div class="ganesha-wrap reveal">
-      <svg viewBox="0 0 160 180" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-        <!-- Crown -->
-        <path d="M58,28 Q60,12 80,8 Q100,12 102,28"/>
-        <path d="M66,24 L64,10 L70,22"/>
-        <path d="M80,22 L80,6 L80,22"/>
-        <path d="M94,24 L96,10 L90,22"/>
-        <!-- Head -->
-        <ellipse cx="80" cy="62" rx="36" ry="38"/>
-        <!-- Eyes -->
-        <circle cx="68" cy="56" r="5"/><circle cx="68" cy="56" r="2" fill="#c9a84c"/>
-        <circle cx="92" cy="56" r="5"/><circle cx="92" cy="56" r="2" fill="#c9a84c"/>
-        <!-- Third eye -->
-        <ellipse cx="80" cy="46" rx="4" ry="3"/>
-        <!-- Ears -->
-        <path d="M44,58 Q22,46 28,82 Q32,100 46,96"/>
-        <path d="M116,58 Q138,46 132,82 Q128,100 114,96"/>
-        <!-- Trunk curling -->
-        <path d="M78,88 Q64,106 72,126 Q80,142 96,138"/>
-        <!-- Tusk -->
-        <path d="M92,78 Q108,84 112,96 L106,100"/>
-        <!-- Body -->
-        <path d="M48,100 Q40,140 44,168 Q60,178 80,178 Q100,178 116,168 Q120,140 112,100"/>
-        <!-- Belly -->
-        <ellipse cx="80" cy="148" rx="22" ry="18"/>
-        <!-- Arms -->
-        <path d="M54,112 Q36,118 32,136 Q30,148 40,152"/>
-        <path d="M106,112 Q124,118 128,136 Q130,148 120,152"/>
-        <!-- Modak in right hand -->
-        <circle cx="126" cy="154" r="9"/>
-        <!-- Blessing left hand up -->
-        <path d="M38,152 Q28,144 30,134"/>
-        <!-- Legs crossed -->
-        <path d="M58,170 Q52,180 64,182"/>
-        <path d="M102,170 Q108,180 96,182"/>
-        <!-- Lotus base -->
-        <ellipse cx="80" cy="182" rx="34" ry="6"/>
-        <path d="M52,180 Q60,170 80,175 Q100,170 108,180"/>
-      </svg>
-    </div>
+    #invite-copy .ic-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
 
-    <div class="gold-rule reveal reveal-d1"><span class="rule-icon">✦</span></div>
+    #invite-copy .ic-gold-line {
+      position: absolute;
+      left: 0; right: 0;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, #b8952a 15%, #b8952a 85%, transparent);
+      z-index: 11;
+    }
+    #invite-copy .ic-gold-line--top    { top: 5%; }
+    #invite-copy .ic-gold-line--bottom { bottom: 5%; }
 
-    <p class="blessing-line reveal reveal-d1">Sri rasthu Subhamasthu Avighnamasthu</p>
-    <p class="blessing-line reveal reveal-d1"><strong>VINDULA'S WEDDING INVITATION</strong></p>
-    <p class="blessing-line reveal reveal-d1" style="margin-top:8px">Sri (Late) Vindula Simhadri, Smt. Sanyasamma's second son</p>
-    <p class="blessing-line reveal reveal-d2"><strong>Sri Vindula Narayana Rao, Smt. Vijaya</strong></p>
+    #invite-copy .ic-floral-bl {
+      position: absolute;
+      bottom: 0; left: 0;
+      width: min(300px, 42%);
+      z-index: 7;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
 
-    <p class="invite-headline reveal reveal-d2">Solicit your gracious presence and blessings with family on the auspicious occasion of the marriage of elder son</p>
+    #invite-copy .ic-floral-tr {
+      position: absolute;
+      top: 0; right: 0;
+      width: min(260px, 38%);
+      z-index: 7;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
 
-    <div class="couple-names-copy reveal reveal-d3">
+    #invite-copy .ic-floral-floor {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(480px, 80%);
+      z-index: 6;
+      mix-blend-mode: multiply;
+      opacity: 0.92;
+      pointer-events: none;
+    }
+
+    #invite-copy .ic-garland-left {
+      position: absolute;
+      top: 6px; left: 20%;
+      width: clamp(80px, 12vw, 140px);
+      z-index: 10;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+      transform: scaleX(-1);
+    }
+    #invite-copy .ic-garland-right {
+      position: absolute;
+      top: 6px; right: 20%;
+      width: clamp(80px, 12vw, 140px);
+      z-index: 10;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+
+    #invite-copy .ic-panel {
+      position: relative;
+      z-index: 10;
+      width: min(560px, 78%);
+      text-align: center;
+      padding: 60px 28px 130px;
+    }
+
+    #invite-copy .ic-ganesha {
+      width: clamp(140px, 18vw, 180px);
+      margin: 0 auto 20px;
+      display: block;
+      mix-blend-mode: multiply;
+      filter: brightness(0.92) saturate(1.1);
+    }
+
+    #invite-copy .ic-gold-orn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 10px auto 16px;
+    }
+    #invite-copy .ic-gold-orn::before,
+    #invite-copy .ic-gold-orn::after {
+      content: '';
+      display: block;
+      width: 80px; height: 1px;
+      background: linear-gradient(90deg, transparent, #b8952a);
+    }
+    #invite-copy .ic-gold-orn::after {
+      background: linear-gradient(90deg, #b8952a, transparent);
+    }
+    #invite-copy .ic-diamond {
+      width: 7px; height: 7px;
+      background: #b8952a;
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+    #invite-copy .ic-diamond-sm {
+      width: 5px; height: 5px;
+      background: #b8952a;
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    #invite-copy .ic-telugu {
+      font-family: 'Tiro Telugu', serif;
+      font-size: clamp(15px, 3.2vw, 22px);
+      color: #8b4a18;
+      letter-spacing: 1px;
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+
+    #invite-copy .ic-label {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(9px, 1.5vw, 11px);
+      letter-spacing: 5px;
+      color: #8b2a12;
+      text-transform: uppercase;
+      margin: 14px 0 10px;
+    }
+
+    #invite-copy .ic-parents {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(12px, 1.8vw, 14.5px);
+      color: #5e3d24;
+      line-height: 1.9;
+      font-style: italic;
+    }
+    #invite-copy .ic-parents strong {
+      font-style: normal;
+      font-weight: 500;
+      color: #3d2010;
+    }
+
+    #invite-copy .ic-solicit {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(7.5px, 1.1vw, 9px);
+      letter-spacing: 3px;
+      color: #7a5030;
+      text-transform: uppercase;
+      line-height: 2;
+      margin: 18px 0 16px;
+    }
+
+    #invite-copy .ic-names {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(28px, 7vw, 56px);
+      color: #1a0e07;
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.5px;
+      margin: 0 0 6px;
+    }
+    #invite-copy .ic-names .amp {
+      font-family: 'Cinzel', serif;
+      color: #b8952a;
+      font-size: 0.9em;
+      margin: 0 8px;
+    }
+
+    #invite-copy .ic-name-orn {
+      margin: 10px auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    #invite-copy .ic-name-orn .dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: #b8952a;
+    }
+    #invite-copy .ic-name-orn .hline {
+      width: 18px; height: 1px;
+      background: #b8952a;
+    }
+
+    #invite-copy .ic-daughter {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(12px, 1.8vw, 14.5px);
+      color: #5e3d24;
+      line-height: 1.9;
+      font-style: italic;
+    }
+    #invite-copy .ic-daughter strong {
+      font-style: normal;
+      font-weight: 500;
+      color: #3d2010;
+    }
+
+    #invite-copy .ic-join {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(12px, 1.8vw, 15px);
+      color: #7a5030;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    #invite-copy .ic-join span {
+      color: #b8952a;
+    }
+  </style>
+
+  <!-- Background Arch -->
+  <img class="ic-bg" src="assets/Invite/Background-Card.png" alt=""/>
+
+  <!-- Gold border lines -->
+  <div class="ic-gold-line ic-gold-line--top"></div>
+  <div class="ic-gold-line ic-gold-line--bottom"></div>
+
+  <!-- Floral Assets (black bg removed via mix-blend-mode:multiply) -->
+  <!-- Bottom-left and corner florals removed as requested -->
+  <img class="ic-floral-floor" src="assets/Invite/Floral-Floor.png"     alt=""/>
+  <img class="ic-garland-left" src="assets/Invite/Garland.png"          alt=""/>
+  <img class="ic-garland-right" src="assets/Invite/Garland.png"         alt=""/>
+
+  <!-- Content panel -->
+  <div class="ic-panel">
+
+    <!-- Ganesha -->
+    <img class="ic-ganesha" src="assets/Invite/Ganesha-Blessing.png" alt="Lord Ganesha"/>
+
+    <!-- Ornament -->
+    <div class="ic-gold-orn"><div class="ic-diamond"></div></div>
+
+    <!-- Telugu blessing -->
+    <p class="ic-telugu">శ్రీ రస్తు శుభమస్తు అవిఘ్నమస్తు</p>
+
+    <!-- Heading -->
+    <p class="ic-label">Vindula's Wedding Invitation</p>
+
+    <!-- Parents -->
+    <p class="ic-parents">
+      Sri (Late) Vindula Simhadri, Smt. Sanyasamma's second son<br/>
+      <strong>Sri Vindula Narayana Rao, Smt. Vijaya</strong>
+    </p>
+
+    <!-- Solicit -->
+    <p class="ic-solicit">
+      Solicit your gracious presence and blessings with family on<br/>
+      the auspicious occasion of the marriage of elder son
+    </p>
+
+    <!-- Names -->
+    <div class="ic-names">
       Nikhil Kumar <span class="amp">&</span> Asha Deepthi
     </div>
 
-    <p class="daughter-line reveal">
+    <!-- Name ornament -->
+    <div class="ic-name-orn">
+      <div class="hline"></div>
+      <div class="dot"></div>
+      <div class="ic-diamond-sm"></div>
+      <div class="dot"></div>
+      <div class="hline"></div>
+    </div>
+
+    <!-- Daughter -->
+    <p class="ic-daughter">
       Elder daughter of<br/>
       <strong>Sri Gangiredla Srinivasa Rao, Smt. Sathya Vani of Simhachalam, Visakhapatnam</strong>
     </p>
 
-    <div class="gold-rule reveal" style="margin-top:28px"><span class="rule-icon">✦</span></div>
-    <p class="blessing-line reveal" style="margin-top:4px">Join us for the invitation details below</p>
+    <!-- Bottom ornament -->
+    <div class="ic-gold-orn" style="margin-top:18px"><div class="ic-diamond"></div></div>
+
+
   </div>
 </section>
 
